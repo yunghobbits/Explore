@@ -4,19 +4,17 @@ import java.sql.*;
 
 public class LoginDao {
 
-    public static boolean validate(String uname,String upass){
+    public static boolean validate(String uName,String uPass){
         boolean status=false;
-
         try
         {
-
             Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/jcg?" +
                     "user=root&password=reece818");
 
-            PreparedStatement ps=conn.prepareStatement("SELECT * FROM jcg.user where uname=? and upass=?");
+            PreparedStatement ps=conn.prepareStatement("SELECT * FROM jcg.user where uName=? and uPass=?");
 
-            ps.setString(1,uname);
-            ps.setString(2,upass);
+            ps.setString(1,uName);
+            ps.setString(2,uPass);
 
             ResultSet rs=ps.executeQuery();
             status=rs.next();

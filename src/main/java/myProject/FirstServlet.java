@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 public class FirstServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -21,7 +20,7 @@ public class FirstServlet extends HttpServlet {
         String p=request.getParameter("userpass");
 
         if(LoginDao.validate(n, p)){
-            RequestDispatcher rd=request.getRequestDispatcher("/WelcomeServlet");
+            RequestDispatcher rd=request.getRequestDispatcher("/profile.jsp");
             rd.forward(request,response);
         }
         else{
